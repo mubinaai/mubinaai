@@ -1,0 +1,31 @@
+---
+title: "Getting Started with Transformers"
+description: "A practical guide to understanding transformer architecture and using it in modern NLP workflows."
+date: "2026-02-14"
+author: "Mubin Ahmed"
+category: "Machine Learning"
+tags: ["transformers", "nlp", "deep-learning"]
+featured: true
+---
+
+Transformers are now the default architecture for most state-of-the-art natural language systems.
+
+## Why transformers changed everything
+
+The key shift was replacing recurrence with attention, allowing models to process tokens in parallel and learn long-range relationships.
+
+### Core attention intuition
+
+Self-attention lets each token weigh every other token before producing its representation.
+
+```ts
+export function scaledDotProduct(q: number, k: number, d: number) {
+  return (q * k) / Math.sqrt(d);
+}
+```
+
+> Strong results come from architecture plus robust data and evaluation discipline.
+
+## Practical usage tips
+
+Start with proven open-source models, benchmark on your own dataset, and optimize inference cost early.

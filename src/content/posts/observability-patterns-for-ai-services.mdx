@@ -1,0 +1,32 @@
+---
+title: "Observability Patterns for AI Services"
+description: "A compact playbook for tracing quality, latency, and cost across AI-powered backends."
+date: "2026-02-24"
+author: "Mubin Ahmed"
+category: "IT Architecture"
+tags: ["observability", "ai", "backend"]
+featured: false
+---
+
+AI services need a wider observability surface than conventional APIs.
+
+## Track quality and performance together
+
+Quality drift and latency regressions often appear at the same time.
+
+### Minimum telemetry set
+
+Log prompts, model versions, response quality labels, latency, token usage, and failure reasons.
+
+```json
+{
+  "requestId": "req_124",
+  "model": "gpt-4.1",
+  "latencyMs": 842,
+  "tokens": 1920
+}
+```
+
+## Alert on meaningful thresholds
+
+Alert fatigue is real, so align thresholds with product impact and user-visible failures.

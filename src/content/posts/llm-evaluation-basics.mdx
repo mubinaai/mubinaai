@@ -1,0 +1,29 @@
+---
+title: "LLM Evaluation Basics for Engineering Teams"
+description: "How to build a reliable evaluation loop for large language model products."
+date: "2026-02-20"
+author: "Mubin Ahmed"
+category: "AI Engineering"
+tags: ["llm", "evaluation", "ai-products"]
+featured: true
+---
+
+Teams fail with LLM projects when they skip evaluation design.
+
+## Define measurable quality first
+
+Before optimizing prompts or models, define business and technical metrics.
+
+### Common metric layers
+
+- Task accuracy
+- Hallucination rate
+- Latency and cost
+
+```bash
+npm run eval -- --dataset ./eval/customer-support.json
+```
+
+## Build an iterative loop
+
+Ship small, measure continuously, and treat prompts like versioned software artifacts.
