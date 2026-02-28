@@ -1,32 +1,30 @@
 "use client";
 
-import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 interface CategoryFilterProps {
   categories: string[];
   activeCategory: string;
   onSelect: (category: string) => void;
+  allLabel?: string;
 }
 
-export function CategoryFilter({ categories, activeCategory, onSelect }: CategoryFilterProps) {
-  const all = ["All", ...categories];
+export function CategoryFilter({ categories, activeCategory, onSelect, allLabel = "All" }: CategoryFilterProps) {
+  const all = [allLabel, ...categories];
 
   return (
     <div className="flex flex-wrap gap-2">
       {all.map((category) => (
-        <button
+        <Button
           key={category}
           type="button"
-          className={cn(
-            "rounded-full border px-3 py-1.5 text-sm transition-colors",
-            activeCategory === category
-              ? "border-primary bg-primary text-primary-foreground"
-              : "border-border bg-card text-muted-foreground hover:text-foreground",
-          )}
+          size="sm"
+          variant={activeCategory === category ? "default" : "outline"}
+          className="rounded-full"
           onClick={() => onSelect(category)}
         >
           {category}
-        </button>
+        </Button>
       ))}
     </div>
   );
