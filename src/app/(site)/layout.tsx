@@ -4,11 +4,13 @@ import { MotionProvider } from "@/components/providers/motion-provider";
 
 export default function SiteLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background flex flex-col">
       <SiteHeader />
-      <MotionProvider>
-        <main className="container-width py-10">{children}</main>
-      </MotionProvider>
+      <div className="flex-1">
+        <MotionProvider>
+          <main className="container-width py-10">{children}</main>
+        </MotionProvider>
+      </div>
       <SiteFooter />
     </div>
   );

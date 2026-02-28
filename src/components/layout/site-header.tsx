@@ -1,9 +1,9 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BrainCircuit } from "lucide-react";
 import { MobileNav } from "@/components/layout/mobile-nav";
 import { cn } from "@/lib/utils";
 
@@ -24,8 +24,8 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur-md">
       <div className="container-width flex h-16 items-center justify-between gap-4">
         <Link href="/" className="flex items-center gap-2 font-semibold tracking-tight">
-          <BrainCircuit className="size-5 text-primary" />
-          AI Blog
+          <Image src="/star-icon.png" alt="Mubinaai logo" width={24} height={24} className="size-6 rounded-sm" />
+          Mubinaai
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">
