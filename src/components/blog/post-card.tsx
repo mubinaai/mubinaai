@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import type { BlogPost } from "@/types/blog";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { formatPostDate } from "@/lib/date";
 
 interface PostCardProps {
   post: BlogPost;
@@ -17,7 +18,7 @@ export function PostCard({ post, featured = false }: PostCardProps) {
       <Card className="h-full border-border/70 shadow-sm transition-shadow hover:shadow-md">
         <CardHeader className="space-y-3">
           <div className="flex items-center justify-between gap-3 text-xs text-muted-foreground">
-            <span>{new Date(post.meta.date).toLocaleDateString()}</span>
+            <span>{formatPostDate(post.meta.date)}</span>
             <span>{post.readingTime}</span>
           </div>
           <Badge variant="secondary" className="w-fit">{post.meta.category}</Badge>

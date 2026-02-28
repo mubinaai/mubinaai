@@ -1,11 +1,15 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BrainCircuit } from "lucide-react";
 import { MobileNav } from "@/components/layout/mobile-nav";
-import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { cn } from "@/lib/utils";
+
+const ThemeToggle = dynamic(() => import("@/components/layout/theme-toggle").then((mod) => mod.ThemeToggle), {
+  ssr: false,
+});
 
 const links = [
   { href: "/", label: "Home" },
