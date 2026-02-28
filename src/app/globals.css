@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+p {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
 :root {
   --background: 0 0% 100%;
   --foreground: 222 47% 11%;
@@ -57,10 +61,18 @@
   --font-sans: var(--font-inter);
 }
 
-* { @apply border-border; }
-html { scroll-behavior: smooth; }
-body { @apply bg-background text-foreground antialiased; }
-.container-width { @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8; }
+* {
+  @apply border-border;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  @apply bg-background text-foreground antialiased;
+}
+.container-width {
+  @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+}
 
 .prose {
   --tw-prose-body: hsl(var(--foreground));
@@ -79,21 +91,47 @@ body { @apply bg-background text-foreground antialiased; }
   --tw-prose-links: hsl(213 94% 68%);
   --tw-prose-code: hsl(210 40% 98%);
 }
-.prose :where(code):not(:where(pre *)) { @apply rounded-md bg-muted px-1.5 py-0.5 text-sm; }
-[data-rehype-pretty-code-figure] { @apply my-6 overflow-x-auto rounded-xl border border-border; }
-[data-rehype-pretty-code-title] { @apply border-b border-border bg-muted px-4 py-2 text-sm text-muted-foreground; }
-[data-rehype-pretty-code-fragment] pre { @apply p-4 text-sm leading-6; }
-[data-highlighted-line] { @apply bg-white/10; }
+.prose :where(code):not(:where(pre *)) {
+  @apply rounded-md bg-muted px-1.5 py-0.5 text-sm;
+}
+[data-rehype-pretty-code-figure] {
+  @apply my-6 overflow-x-auto rounded-xl border border-border;
+}
+[data-rehype-pretty-code-title] {
+  @apply border-b border-border bg-muted px-4 py-2 text-sm text-muted-foreground;
+}
+[data-rehype-pretty-code-fragment] pre {
+  @apply p-4 text-sm leading-6;
+}
+[data-highlighted-line] {
+  @apply bg-white/10;
+}
 
 @keyframes wave {
-  0% { transform: rotate(0deg); }
-  10% { transform: rotate(14deg); }
-  20% { transform: rotate(-8deg); }
-  30% { transform: rotate(14deg); }
-  40% { transform: rotate(-4deg); }
-  50% { transform: rotate(10deg); }
-  60% { transform: rotate(0deg); }
-  100% { transform: rotate(0deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(14deg);
+  }
+  20% {
+    transform: rotate(-8deg);
+  }
+  30% {
+    transform: rotate(14deg);
+  }
+  40% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 .animate-wave {
@@ -102,7 +140,9 @@ body { @apply bg-background text-foreground antialiased; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;

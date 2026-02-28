@@ -19,7 +19,7 @@ export function SiteHero({
 }: SiteHeroProps) {
   return (
     <section className="rounded-2xl border border-border/70 bg-gradient-to-b from-muted/50 to-transparent px-4 py-8 shadow-sm sm:px-8 sm:py-12">
-      <div className="mx-auto max-w-3xl space-y-5 text-center sm:space-y-6 sm:text-left">
+      <div className="mx-auto space-y-5 text-center sm:space-y-6 sm:text-left">
         <h1 className="text-2xl font-semibold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
           <span className="mr-1 inline-block animate-wave align-middle">
             👋
