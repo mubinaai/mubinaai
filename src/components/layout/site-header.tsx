@@ -65,12 +65,18 @@ export function SiteHeader({ locale = "uz" }: SiteHeaderProps) {
         </nav>
 
         <div className="flex items-center gap-2">
-          <LanguageToggle locale={locale} ariaLabel={t.nav.language} />
+          <LanguageToggle
+            locale={locale}
+            ariaLabel={t.nav.language}
+            className="hidden md:block"
+          />
           <ThemeToggle />
           <MobileNav
             links={links}
             title={t.nav.navigation}
             openMenuLabel={t.nav.openMenu}
+            locale={locale}
+            languageLabel={t.nav.language}
           />
         </div>
       </div>

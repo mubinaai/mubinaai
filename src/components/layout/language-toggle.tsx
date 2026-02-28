@@ -4,6 +4,7 @@ import { Suspense, useMemo } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Select } from "@/components/ui/select";
 import { defaultLocale, isLocale, locales, type Locale } from "@/lib/i18n";
+import { cn } from "@/lib/utils";
 
 const labels: Record<Locale, string> = {
   uz: "O'zbek",
@@ -14,9 +15,14 @@ const labels: Record<Locale, string> = {
 interface LanguageToggleProps {
   locale: Locale;
   ariaLabel: string;
+  className?: string;
 }
 
-function LanguageToggleContent({ locale, ariaLabel }: LanguageToggleProps) {
+function LanguageToggleContent({
+  locale,
+  ariaLabel,
+  className,
+}: LanguageToggleProps) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -42,7 +48,7 @@ function LanguageToggleContent({ locale, ariaLabel }: LanguageToggleProps) {
   }
 
   return (
-    <div className="w-[126px]" aria-label={ariaLabel}>
+    <div className={cn("w-[126px]", className)} aria-label={ariaLabel}>
       <Select
         value={locale}
         onChange={(event) => changeLocale(event.target.value as Locale)}
@@ -61,7 +67,7 @@ function LanguageToggleContent({ locale, ariaLabel }: LanguageToggleProps) {
 
 export function LanguageToggle(props: LanguageToggleProps) {
   return (
-    <Suspense fallback={<div className="h-8 w-[126px]" />}>
+    <Suspense fallback={<div className={cn("h-8 w-[126px]", props.className)} />}>
       <LanguageToggleContent {...props} />
     </Suspense>
   );
