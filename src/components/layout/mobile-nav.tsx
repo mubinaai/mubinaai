@@ -7,18 +7,20 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/co
 
 interface MobileNavProps {
   links: Array<{ href: string; label: string }>;
+  title: string;
+  openMenuLabel: string;
 }
 
-export function MobileNav({ links }: MobileNavProps) {
+export function MobileNav({ links, title, openMenuLabel }: MobileNavProps) {
   return (
     <Sheet>
       <SheetTrigger asChild className="md:hidden">
-        <Button variant="outline" size="icon" aria-label="Open menu">
+        <Button variant="outline" size="icon" aria-label={openMenuLabel}>
           <Menu className="size-4" />
         </Button>
       </SheetTrigger>
       <SheetContent side="right">
-        <SheetHeader><SheetTitle>Navigation</SheetTitle></SheetHeader>
+        <SheetHeader><SheetTitle>{title}</SheetTitle></SheetHeader>
         <nav className="mt-8 flex flex-col gap-2">
           {links.map((link) => (
             <Link key={link.href} href={link.href} className="rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-muted hover:text-foreground">
