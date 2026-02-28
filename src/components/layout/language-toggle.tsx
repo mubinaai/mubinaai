@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { Suspense, useMemo } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Select } from "@/components/ui/select";
 import { defaultLocale, isLocale, locales, type Locale } from "@/lib/i18n";
@@ -16,12 +16,15 @@ interface LanguageToggleProps {
   ariaLabel: string;
 }
 
-export function LanguageToggle({ locale, ariaLabel }: LanguageToggleProps) {
+function LanguageToggleContent({ locale, ariaLabel }: LanguageToggleProps) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  const segments = useMemo(() => pathname.split("/").filter(Boolean), [pathname]);
+  const segments = useMemo(
+    () => pathname.split("/").filter(Boolean),
+    [pathname],
+  );
 
   function changeLocale(nextLocale: Locale) {
     const nextSegments = [...segments];
@@ -53,5 +56,13 @@ export function LanguageToggle({ locale, ariaLabel }: LanguageToggleProps) {
         ))}
       </Select>
     </div>
+  );
+}
+
+export function LanguageToggle(props: LanguageToggleProps) {
+  return (
+    <Suspense fallback={<div className="h-8 w-[126px]" />}>
+      <LanguageToggleContent {...props} />
+    </Suspense>
   );
 }
